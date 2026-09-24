@@ -26,6 +26,23 @@ const Content = (props) => {
 </div>
  )
 }
+const Total = (props) => {
+ return (
+<p>
+     Number of units{' '}
+     {props.parts[0].exercises +
+       props.parts[1].exercises +
+       props.parts[2].exercises}
+</p>
+ )
+}
+const Footer = (props) => {
+ return (
+<footer>
+     {props.name} - {props.courseCode} - {props.section}
+</footer>
+ )
+}
 const App = () => {
  const course = {
    name: 'CSIT340 - Industry Elective 1',
@@ -44,10 +61,19 @@ const App = () => {
      }
    ]
  }
+ const fullName = 'Nicole Sheen P. Aldaya'
+ const courseCode = 'CSIT340'
+ const section = 'G6'
  return (
 <div>
 <Header course={course.name} />
 <Content parts={course.parts} />
+<Total parts={course.parts} />
+<Footer
+       name={fullName}
+       courseCode={courseCode}
+       section={section}
+     />
 </div>
  )
 }
